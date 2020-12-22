@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { Body } from "../atom/Body";
-import { Grid3Cols } from "../atom/GridLayouts";
-import { HeadingText, Title } from "../atom/Headings";
-import { Card } from "../components/Card";
-import { Empty } from "../components/Empty";
-import { Section } from "../components/Section";
-import { useCarouselContext } from "../context/carouselImage";
-import { useAPI } from "../hooks/API";
-import { getImgSrc } from "../hooks/getImg";
+import { Body } from "../../atom/Body";
+import { Grid3Cols } from "../../atom/GridLayouts";
+import { HeadingText, Title } from "../../atom/Headings";
+import { Card } from "../../components/Card";
+import { Empty } from "../../components/Empty";
+import { Section } from "../../components/Section";
+import { useCarouselContext } from "../../context/carouselImage";
+import { useAPI } from "../../hooks/API";
+import { getImgSrc } from "../../hooks/getImg";
 
 export const CreationLanguageALL = () => {
   const history = useHistory();

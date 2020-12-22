@@ -21,7 +21,8 @@ export const MainPage = React.memo(({ url, name, cards }) => {
   const { g } = useLanguageContext();
 
   useEffect(() => {
-    if (data && !error && data.results.length) setImages(data.results);
+    if (data && !error && data.results.length)
+      setImages(data.results.filter((el) => !!getImgSrc(el)));
   }, [data, error, setImages]);
 
   if (error || !data) return <HeadingText>Loading ...</HeadingText>;

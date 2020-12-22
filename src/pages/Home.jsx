@@ -41,7 +41,7 @@ export const Home = React.memo(() => {
         );
         setCreationsByLang((d) => [
           ...d,
-          { name: lang[g("name")], id: lang.id, creation: data.creation },
+          { name: lang.name, id: lang.id, creation: data.creation },
         ]);
       });
     }

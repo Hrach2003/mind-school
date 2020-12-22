@@ -2,7 +2,8 @@ import axios from "axios";
 import useSWR from "swr";
 
 const baseURL =
-  process.NODE_ENV === "production" ? "/" : "https://mindschool.am/api";
+  // process.NODE_ENV === "production" ? "/" :
+  "https://mindschool.am/api";
 export const axiosInstance = axios.create({
   baseURL,
 });

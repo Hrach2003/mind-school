@@ -30,27 +30,31 @@ export const InfoLayout = React.memo(
     return (
       <Body>
         <Section heading={<Title>{name}</Title>} />
-        {loading && <HeadingText>Loading ...</HeadingText>}
-        <Section classes="mb-32" heading={<SubTitle>{title}</SubTitle>}>
-          <div className="w-full h-120 bg-gray-400">
-            <img src={main_image} alt={`${title} ${name}`}></img>
-          </div>
-          <Card>
-            <Paragraph>{content}</Paragraph>
+        {loading ? (
+          <HeadingText>Loading ...</HeadingText>
+        ) : (
+          <Section classes="mb-32" heading={<SubTitle>{title}</SubTitle>}>
+            <div className="w-full h-120 bg-gray-400">
+              <img src={main_image} alt={`${title} ${name}`}></img>
+            </div>
+            <Card>
+              <Paragraph>{content}</Paragraph>
 
-            <OverLay classes="uppercase font-medium mt-3">
-              {creator}
-              <br /> {created_at}
-            </OverLay>
-          </Card>
+              <OverLay classes="uppercase font-medium mt-3">
+                {creator}
+                <br /> {created_at}
+              </OverLay>
+            </Card>
 
-          <Grid4Cols>
-            {images.map((data) => {
-              return <Card src={getImgSrc(data)} key={data.id} noLine />;
-            })}
-          </Grid4Cols>
-        </Section>
-        {tags && <Tags tags={tags} />}
+            <Grid4Cols>
+              {images.map((data) => {
+                return <Card src={getImgSrc(data)} key={data.id} noLine />;
+              })}
+            </Grid4Cols>
+          </Section>
+        )}
+
+        {!loading && tags && <Tags tags={tags} />}
       </Body>
     );
   }

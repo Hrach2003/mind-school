@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useCarouselContext } from "../context/carouselImage";
-import { useLanguageContext } from "../context/languageContext";
-import { InfoLayout } from "../HOC/infoLayout";
-import { useAPI } from "../hooks/API";
-import { getImgSrc } from "../hooks/getImg";
+import { useCarouselContext } from "../../context/carouselImage";
+import { useLanguageContext } from "../../context/languageContext";
+import { InfoLayout } from "../../HOC/infoLayout";
+import { useAPI } from "../../hooks/API";
+import { getImgSrc } from "../../hooks/getImg";
 
 // const checkIMGURL = (str) => !!str.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/gi);
 
 export const EventsDetail = () => {
-  const { g } = useLanguageContext();
+  const { g, t } = useLanguageContext();
   const { setImages } = useCarouselContext();
   const { id } = useParams();
 
@@ -20,14 +20,14 @@ export const EventsDetail = () => {
   return (
     <InfoLayout
       loading={!data && !error}
-      name={"Միջոցառումներ"}
-      title={data[g("title")]}
-      images={data.images}
+      name={t("events")}
+      title={data?.[g("title")]}
+      images={data?.images}
       main_image={getImgSrc(data)}
-      creator={data[g("creator")]}
-      created_at={data[g("created_at")]}
-      tags={data.tags}
-      content={data[g("content")]}
+      creator={data?.[g("creator")]}
+      created_at={data?.[g("created_at")]}
+      tags={data?.tags}
+      content={data?.[g("content")]}
     />
   );
 };

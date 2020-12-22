@@ -9,7 +9,7 @@ export const useLanguageContext = () => {
   return d;
 };
 export const LanguageContextProvider = ({ children }) => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const lang = ["hy", "en"];
   const [activeLang, setActiveLang] = useState("hy");
 
@@ -24,7 +24,13 @@ export const LanguageContextProvider = ({ children }) => {
   };
   return (
     <LanguageContext.Provider
-      value={{ lang, setActiveLang: changeLangTo, activeLang, g: getFieldName }}
+      value={{
+        lang,
+        setActiveLang: changeLangTo,
+        activeLang,
+        g: getFieldName,
+        t,
+      }}
     >
       {children}
     </LanguageContext.Provider>
