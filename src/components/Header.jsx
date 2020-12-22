@@ -36,7 +36,7 @@ export const NavLinks = React.memo(({ ...props }) => {
       </div>
       <div className="items-center justify-center capitalize flex" {...props}>
         <HeadingText>
-          <NavLink to="/">{t("history")}</NavLink> |{" "}
+          <NavLink to="/histories">{t("history")}</NavLink> |{" "}
           <NavLink to="/events">{t("events")}</NavLink>
         </HeadingText>
       </div>

@@ -21,7 +21,7 @@ export const CreationLanguageALL = () => {
     if (data && data.creation.length) {
       setImages(data.creation);
     }
-  }, [data]);
+  }, [data, setImages]);
 
   return (
     <Body>

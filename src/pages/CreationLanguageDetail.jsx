@@ -5,20 +5,19 @@ import { useCarouselContext } from "../context/carouselImage";
 import { useLanguageContext } from "../context/languageContext";
 import { useAPI } from "../hooks/API";
 import { getImgSrc } from "../hooks/getImg";
-import { HeadingText } from "../atom/Headings";
 
 export const CreationLanguageDetails = () => {
   const { name, creation_id } = useParams(); // , id, creation_id
   const { setImages } = useCarouselContext();
   const { g } = useLanguageContext();
 
-  const { data } = useAPI(`/creation/${creation_id}`);
+  const { data, error } = useAPI(`/creation/${creation_id}`);
   useEffect(() => {
-    if (data) setImages(data.images);
-  }, [data]);
-  if (!data) return <HeadingText>Loading ...</HeadingText>;
+    if (data && data.images.length) setImages(data.images);
+  }, [data, setImages]);
   return (
     <InfoLayout
+      loading={!data && !error}
       name={name}
       title={data[g("title")]}
       images={data.images}

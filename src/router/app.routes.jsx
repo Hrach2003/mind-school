@@ -10,6 +10,8 @@ import { FolkDance } from "../pages/FolkDanceALL";
 import { FolkMusic } from "../pages/FolkMusicALL";
 import { FolkDanceDetail } from "../pages/FolkDanceDetail";
 import { FolkMusicDetail } from "../pages/FolkMusicDetail";
+import { HistoryDetail } from "../pages/HistoriesDetail";
+import { History } from "../pages/HistoriesALL";
 
 export const Routes = () => {
   return (
@@ -37,6 +39,13 @@ export const Routes = () => {
       </Route>
       <Route path="/folk-musics/:id">
         <FolkMusicDetail />
+      </Route>
+
+      <Route path="/histories">
+        <History />
+      </Route>
+      <Route path="/history/:id">
+        <HistoryDetail />
       </Route>
 
       <Route exact path="/:name/:id">

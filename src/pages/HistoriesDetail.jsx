@@ -6,21 +6,20 @@ import { InfoLayout } from "../HOC/infoLayout";
 import { useAPI } from "../hooks/API";
 import { getImgSrc } from "../hooks/getImg";
 
-// const checkIMGURL = (str) => !!str.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/gi);
-
-export const EventsDetail = () => {
+export const HistoryDetail = () => {
   const { g } = useLanguageContext();
-  const { setImages } = useCarouselContext();
   const { id } = useParams();
-
-  const { data, error } = useAPI(`/event/${id}`);
+  const { data, error } = useAPI(`/history/${id}`);
+  const { setImages } = useCarouselContext();
   useEffect(() => {
-    if (data && data.images.length) setImages(data.images);
+    if (data && data.images.length) {
+      setImages(data.images);
+    }
   }, [data, setImages]);
   return (
     <InfoLayout
       loading={!data && !error}
-      name={"Միջոցառումներ"}
+      name={"Պատմություն"}
       title={data[g("title")]}
       images={data.images}
       main_image={getImgSrc(data)}

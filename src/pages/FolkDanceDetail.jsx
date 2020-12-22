@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { HeadingText } from "../atom/Headings";
+import { useCarouselContext } from "../context/carouselImage";
 import { useLanguageContext } from "../context/languageContext";
 import { InfoLayout } from "../HOC/infoLayout";
 import { useAPI } from "../hooks/API";
@@ -9,10 +9,16 @@ import { getImgSrc } from "../hooks/getImg";
 export const FolkDanceDetail = () => {
   const { g } = useLanguageContext();
   const { id } = useParams();
-  const { data, error } = useAPI(`/folk-dance/?page=${id}`);
-  if (error || !data) return <HeadingText>Loading ...</HeadingText>;
+  const { data, error } = useAPI(`/folk-dance/${id}`);
+  const { setImages } = useCarouselContext();
+  useEffect(() => {
+    if (data && data.images.length) {
+      setImages(data.images);
+    }
+  }, [data, setImages]);
   return (
     <InfoLayout
+      loading={!data && !error}
       name={"Ազգաին Պար"}
       title={data[g("title")]}
       images={data.images}

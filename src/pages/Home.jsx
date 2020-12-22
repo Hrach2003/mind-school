@@ -48,14 +48,15 @@ export const Home = React.memo(() => {
   }, [creation_languages, g]);
 
   useEffect(() => {
-    if (musics && dances) setImages([...musics.results, ...dances.results]);
+    if (musics && dances)
+      setImages(
+        [...musics.results, ...dances.results].filter((el) => !!getImgSrc(el))
+      );
   }, [dances, musics, setImages]);
   const { t } = useTranslation();
   return (
     <Body>
-      {creationsByLang.length && (
-          <pre>{JSON.stringify(creationsByLang, null, 2)}</pre>
-        ) &&
+      {creationsByLang.length &&
         creationsByLang.map(({ name, id, creation }) => {
           return (
             <Section
