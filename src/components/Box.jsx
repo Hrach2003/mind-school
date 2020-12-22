@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import classnames from "classnames";
 import { OverLay, Paragraph } from "../atom/Headings";
 import { Line } from "../atom/Line";
+import { useTranslation } from "react-i18next";
 
-// eslint-disable-next-line react/display-name
 export const Box = React.memo(
-  // eslint-disable-next-line react/prop-types
   ({ classes, content, creator, created_at, ...props }) => {
     const [opened, setOpened] = useState(false);
+    const { t } = useTranslation();
     return (
       <div
         className={classnames(`box ${classes}`, { open: opened })}
@@ -26,7 +26,7 @@ export const Box = React.memo(
             onClick={() => setOpened((o) => !o)}
           >
             <Paragraph classes="font-semibold">
-              {opened ? "Վերադառնալ" : "Կարդալ Ավելին"}
+              {opened ? t("readLess") : t("readMore")}
             </Paragraph>
           </button>
         </div>

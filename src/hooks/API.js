@@ -3,7 +3,7 @@ import useSWR from "swr";
 
 const baseURL =
   // eslint-disable-next-line no-undef
-  process.NODE_ENV === "production" ? "/" : "https://mindschool.am/";
+  process.NODE_ENV === "production" ? "/api" : "https://mindschool.am/api";
 export const axiosInstance = axios.create({
   baseURL,
 });

@@ -1,8 +1,10 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { HeadingText } from "./Headings";
 
 export const SeeAllBtn = React.memo(({ classes, children, to, ...props }) => {
+  const { t } = useTranslation();
   return (
     <Link
       to={to}
@@ -10,7 +12,7 @@ export const SeeAllBtn = React.memo(({ classes, children, to, ...props }) => {
       {...props}
     >
       <i className="fas fa-angle-double-right mr-2 text-red-600"></i>
-      <HeadingText>{children ? children : "Տեսնել Ավելին"}</HeadingText>
+      <HeadingText>{children ? children : t("seeMore")}</HeadingText>
     </Link>
   );
 });

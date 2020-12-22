@@ -26,7 +26,7 @@ export const Carousel = () => {
             <img
               src={getImgSrc(image)}
               className="object-cover h-full w-full"
-              alt="mind school image"
+              alt="mind school"
             />
           </div>
         );

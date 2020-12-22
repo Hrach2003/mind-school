@@ -12,13 +12,16 @@ import { useHistory } from "react-router-dom";
 import { useCarouselContext } from "../context/carouselImage";
 import { useLanguageContext } from "../context/languageContext";
 import { Empty } from "../components/Empty";
+import { useTranslation } from "react-i18next";
 
 // eslint-disable-next-line react/prop-types
-const SeeMoreWrapper = ({ to, ...props }) => (
-  <div className="flex justify-end mt-2">
-    <SeeAllBtn to={to} {...props} />
-  </div>
-);
+const SeeMoreWrapper = ({ to, ...props }) => {
+  return (
+    <div className="flex justify-end mt-2">
+      <SeeAllBtn to={to} {...props} />
+    </div>
+  );
+};
 
 // eslint-disable-next-line react/display-name
 export const Home = React.memo(() => {
@@ -42,11 +45,12 @@ export const Home = React.memo(() => {
         ]);
       });
     }
-  }, [creation_languages]);
+  }, [creation_languages, g]);
 
   useEffect(() => {
     if (musics && dances) setImages([...musics.results, ...dances.results]);
-  }, [dances, musics]);
+  }, [dances, musics, setImages]);
+  const { t } = useTranslation();
   return (
     <Body>
       {creationsByLang.length && (
@@ -79,7 +83,7 @@ export const Home = React.memo(() => {
           );
         })}
 
-      <Section heading={<SubTitle classes="pb-2">Ազգային Պար</SubTitle>}>
+      <Section heading={<SubTitle classes="pb-2">{t("folkDance")}</SubTitle>}>
         <Grid3Cols>
           {musics &&
             musics.results.map((info) => (
@@ -97,7 +101,7 @@ export const Home = React.memo(() => {
 
         <SeeMoreWrapper to="/folk-musics" />
       </Section>
-      <Section heading={<SubTitle classes="pb-2">Ազգային Երգ</SubTitle>}>
+      <Section heading={<SubTitle classes="pb-2">{t("folkMusic")}</SubTitle>}>
         <Grid3Cols>
           {dances &&
             dances.results.map((info) => (

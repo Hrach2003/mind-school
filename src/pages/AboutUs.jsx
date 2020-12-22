@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Body } from "../atom/Body";
 import { Grid4Cols } from "../atom/GridLayouts";
 import {
@@ -18,18 +19,22 @@ export const AboutUs = () => {
   const { data, error } = useAPI("/about-us");
   const { setImages } = useCarouselContext();
   const { g } = useLanguageContext();
+  const { t } = useTranslation();
   useEffect(() => {
     if (data && !error) {
       setImages(data[0].images);
     }
-  }, [data, error]);
+  }, [data, error, setImages]);
   if (error) return <HeadingText>Loading ...</HeadingText>;
   if (!data) return <HeadingText>Loading ...</HeadingText>;
   const info = data[0]; // data.length - 1
   return (
     <Body>
-      <Section heading={<Title>Հայ Մտքի Դպրոց</Title>} />
-      <Section classes="mb-32 mt-12" heading={<SubTitle>Մեր Մասին</SubTitle>}>
+      <Section heading={<Title>{t("armenianMindSchool")}</Title>} />
+      <Section
+        classes="mb-32 mt-12"
+        heading={<SubTitle>{t("aboutUs")}</SubTitle>}
+      >
         <Card>
           <Paragraph>{info.content}</Paragraph>
           <OverLay classes="uppercase font-medium mt-3">

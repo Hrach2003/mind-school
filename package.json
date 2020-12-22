@@ -11,6 +11,7 @@
     "autoprefixer": "^9.8.6",
     "axios": "^0.21.0",
     "classnames": "^2.2.6",
+    "global": "^4.4.0",
     "i18next": "^19.8.4",
     "i18next-browser-languagedetector": "^6.0.1",
     "postcss": "^7.0.35",
@@ -19,6 +20,7 @@
     "react-i18next": "^11.8.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "serve": "^11.3.2",
     "swr": "^0.3.11",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
     "web-vitals": "^0.2.4"

@@ -30,14 +30,14 @@ export const NavLinks = React.memo(({ ...props }) => {
       </div>
       <div className="items-center justify-center capitalize flex" {...props}>
         <HeadingText>
-          <NavLink to="/folk-musics">{t("forkMusic")}</NavLink> |{" "}
-          <NavLink to="/folk-dances">Ազգային Պար</NavLink>
+          <NavLink to="/folk-musics">{t("folkMusic")}</NavLink> |{" "}
+          <NavLink to="/folk-dances">{t("folkDance")}</NavLink>
         </HeadingText>
       </div>
       <div className="items-center justify-center capitalize flex" {...props}>
         <HeadingText>
-          <NavLink to="/">Պատմություն</NavLink> |{" "}
-          <NavLink to="/events">Միջոցառումներ</NavLink>
+          <NavLink to="/">{t("history")}</NavLink> |{" "}
+          <NavLink to="/events">{t("events")}</NavLink>
         </HeadingText>
       </div>
     </>

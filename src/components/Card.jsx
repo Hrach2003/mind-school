@@ -7,7 +7,7 @@ export const Card = React.memo(
       <div className={`w-full cursor-pointer ${classes}`} {...props}>
         {src && (
           <div className="h-48 w-full bg-red-600">
-            <img src={src}></img>
+            <img src={src} alt={`${url}`}></img>
           </div>
         )}
         <div className="my-2">
