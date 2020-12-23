@@ -18,7 +18,7 @@ export const NavLinks = React.memo(({ ...props }) => {
     <>
       <NavLink
         to="/"
-        className="h-full cursor-pointer hidden md:block w-16 absolute inset-y-0 left-0"
+        className="h-full cursor-pointer hidden md:block w-16 absolute inset-y-0 left-4"
       >
         <img src={logo} alt="Mind School" />
       </NavLink>
