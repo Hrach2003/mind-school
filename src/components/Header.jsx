@@ -7,6 +7,7 @@ import { NavLink } from "react-router-dom";
 import { useAPI } from "../hooks/API";
 import { useLanguageContext } from "../context/languageContext";
 import { useTranslation } from "react-i18next";
+import logo from "../assets/logo512.jpg";
 // eslint-disable-next-line react/display-name
 export const NavLinks = React.memo(({ ...props }) => {
   const { data } = useAPI("/creation-language/");
@@ -15,6 +16,12 @@ export const NavLinks = React.memo(({ ...props }) => {
 
   return (
     <>
+      <NavLink
+        to="/"
+        className="h-full cursor-pointer hidden md:block w-16 absolute inset-y-0 left-0"
+      >
+        <img src={logo} alt="Mind School" />
+      </NavLink>
       <div className="items-center justify-center capitalize flex" {...props}>
         <HeadingText>
           {data &&
