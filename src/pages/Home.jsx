@@ -35,6 +35,7 @@ export const Home = React.memo(() => {
 
   useEffect(() => {
     if (creation_languages && creation_languages.results.length) {
+      setCreationsByLang([]);
       creation_languages.results.forEach(async (lang) => {
         const { data } = await axiosInstance.get(
           `/creation-language/${lang.id}`
@@ -79,7 +80,7 @@ export const Home = React.memo(() => {
                   })}
                 </Grid3Cols>
               )}
-              <SeeMoreWrapper to={`/${name}/${id}`} />
+              <SeeMoreWrapper to={`/creation-language/${id}`} />
             </Section>
           );
         })}

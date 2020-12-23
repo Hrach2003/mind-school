@@ -48,11 +48,11 @@ export const Routes = () => {
         <HistoryDetail />
       </Route>
 
-      <Route exact path="/:name/:id">
+      <Route exact path="/creation-language/:id">
         <CreationLanguageALL />
       </Route>
 
-      <Route path="/:name/:id/:creation_id">
+      <Route path="/creation-language/:id/:creation_id">
         <CreationLanguageDetails />
       </Route>
 

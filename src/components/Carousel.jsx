@@ -3,6 +3,7 @@ import classnames from "classnames";
 import { useCarouselContext } from "../context/carouselImage";
 import { getImgSrc } from "../hooks/getImg";
 import { useLanguageContext } from "../context/languageContext";
+import mainSlider from "../assets/main_slider.png";
 
 export const Carousel = () => {
   const { setActiveLang } = useLanguageContext();
@@ -16,7 +17,17 @@ export const Carousel = () => {
 
   return (
     <div className="flex items-center overflow-hidden z-10 m-0 p-0 h-80 sm:h-90 md:h-120 w-full relative">
-      {images.map((image) => {
+      <div
+        className="min-w-full h-full relative slide"
+        style={{ transform: `translateX(${position * -100}%)` }}
+      >
+        <img
+          src={mainSlider}
+          className="object-cover h-full w-full"
+          alt="mind school"
+        />
+      </div>
+      {/* {images.map((image) => {
         return (
           <div
             className="min-w-full h-full relative slide"
@@ -30,7 +41,7 @@ export const Carousel = () => {
             />
           </div>
         );
-      })}
+      })} */}
       <div className="absolute z-50 bottom-0 inset-x-0 flex justify-center">
         <div className="flex flex-col">
           <span className="block text-center font-semibold flex-auto mb-1 mx-auto px-3 py-1 bg-gray-300 bg-opacity-50 rounded-full">
@@ -55,11 +66,21 @@ export const Carousel = () => {
             </span>
           </div>
           <div className="flex justify-center my-2 space-x-2">
-            {images.map((_, i) => {
+            <div
+              onClick={() => goTo(0)}
+              className={classnames(
+                "transition-all cursor-pointer duration-200 rounded-full h-4 w-4",
+                {
+                  "shadow-outline bg-red-700": position === 0,
+                  "bg-white shadow-2xl": position !== 0,
+                }
+              )}
+            />
+            {/* {images.map((_, i) => {
               return (
                 <div
                   key={i}
-                  onClick={() => goTo(i)}
+                  onClick={() => goTo(i + 1)}
                   className={classnames(
                     "transition-all cursor-pointer duration-200 rounded-full h-4 w-4",
                     {
@@ -69,11 +90,11 @@ export const Carousel = () => {
                   )}
                 />
               );
-            })}
+            })} */}
           </div>
         </div>
       </div>
-      <div className="absolute h-full min-w-full flex items-center justify-between">
+      {/* <div className="absolute h-full min-w-full flex items-center justify-between">
         <div
           className="h-full bg-transparent text-3xl flex items-center px-3 text-gray-100 cursor-pointer left-0"
           onClick={() => goTo(position - 1)}
@@ -86,7 +107,7 @@ export const Carousel = () => {
         >
           <i className="fas fa-chevron-right"></i>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

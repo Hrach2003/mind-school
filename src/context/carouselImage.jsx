@@ -10,6 +10,7 @@ export const useCarouselContext = () => {
 export const CarouselContextProvider = ({ children }) => {
   const [images, setImages] = useState([]);
 
+  // const updateImage
   return (
     <CarouselImageContext.Provider value={{ images, setImages }}>
       {children}

@@ -38,9 +38,7 @@ export const MainPage = React.memo(({ url, name }) => {
               src={getImgSrc(data)}
               onClick={() => history.push(`${url}/${data.id}`)}
             >
-              <HeadingText
-                dangerouslySetInnerHTML={{ __html: data[g("title")] }}
-              />
+              <HeadingText>{data[g("title")]}</HeadingText>
             </Card>
           ))}
 

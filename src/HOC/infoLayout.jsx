@@ -38,7 +38,7 @@ export const InfoLayout = React.memo(
               <img src={main_image} alt={`${title} ${name}`}></img>
             </div>
             <Card>
-              <Paragraph>{content}</Paragraph>
+              <Paragraph dangerouslySetInnerHTML={{ __html: content }} />
 
               <OverLay classes="uppercase font-medium mt-3">
                 {creator}
@@ -54,7 +54,7 @@ export const InfoLayout = React.memo(
           </Section>
         )}
 
-        {!loading && tags && <Tags tags={tags} />}
+        {!loading && tags?.length > 0 && <Tags tags={tags} />}
       </Body>
     );
   }

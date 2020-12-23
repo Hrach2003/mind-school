@@ -20,7 +20,7 @@ export const NavLinks = React.memo(({ ...props }) => {
           {data &&
             data.results.map((info, idx) => {
               return (
-                <NavLink key={info.id} to={`/${info.name}/${info.id}`}>
+                <NavLink key={info.id} to={`/creation-language/${info.id}`}>
                   {idx === data.results.length - 1 && " | "}
                   {info[g("name")]}
                 </NavLink>
