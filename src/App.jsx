@@ -9,7 +9,7 @@ import { Routes } from "./router/app.routes";
 function App() {
   return (
     <LanguageContextProvider>
-      <div className="min-w-full min-h-screen bg-gray-100">
+      <div className="min-w-full min-h-screen bg-gray-200">
         <Header />
         <CarouselContextProvider>
           <Carousel />

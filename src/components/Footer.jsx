@@ -13,7 +13,7 @@ export const Footer = React.memo(() => {
       className="bg-blue-900 flex items-center justify-center bg-contain shadow-2xl"
       style={{ backgroundImage: `url(${Trim})` }}
     >
-      <Container classes="my-6 py-1 bg-yellow-400 rounded bg-opacity-75">
+      <Container classes="my-6 py-1 bg-yellow-50 rounded">
         <div className="flex justify-center items-center my-4">
           <SubTitle classes="mx-2 md:mx-10 text-left">
             {t("contactUs")}

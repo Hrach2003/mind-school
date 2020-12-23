@@ -14,6 +14,8 @@
   transition: 0.5s;
 }
 
+
+
 .box {
   max-height: 162px;
   transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);

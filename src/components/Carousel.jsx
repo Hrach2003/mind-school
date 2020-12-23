@@ -63,7 +63,7 @@ export const Carousel = () => {
                   className={classnames(
                     "transition-all cursor-pointer duration-200 rounded-full h-4 w-4",
                     {
-                      "shadow-outline bg-red-800": position === i,
+                      "shadow-outline bg-red-700": position === i,
                       "bg-white shadow-2xl": position !== i,
                     }
                   )}

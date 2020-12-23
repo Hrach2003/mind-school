@@ -70,7 +70,7 @@ export const Header = () => {
         <div className="mx-2 h-full flex justify-between items-center md:hidden">
           <button
             className={classnames(
-              "rounded-full active:bg-gray-300 h-8 w-8 flex items-center justify-center font-light ml-1",
+              "rounded-full active:bg-gray-200 h-8 w-8 flex items-center justify-center font-light ml-1",
               {
                 "text-gray-200": opacity,
                 "text-gray-800": !opacity,

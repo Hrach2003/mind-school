@@ -3,6 +3,17 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      colors: {
+        red: {
+          700: "#CD3D1E",
+        },
+        blue: {
+          900: "#262F41",
+        },
+        gray: {
+          200: "#E3E2DC",
+        },
+      },
       gridTemplateRows: {
         10: "repeat(10, minmax(0, 1fr))",
       },

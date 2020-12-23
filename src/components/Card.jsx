@@ -6,13 +6,13 @@ export const Card = React.memo(
     return (
       <div className={`w-full cursor-pointer ${classes}`} {...props}>
         {src && (
-          <div className="h-48 w-full bg-red-600">
+          <div className="h-48 w-full bg-red-700">
             <img src={src} alt={`${url}`}></img>
           </div>
         )}
         <div className="my-2">
           {children}
-          {!noLine && <Line color="blue" classes="h-2 mt-1" />}
+          {!noLine && <Line classes="h-2 mt-1" />}
         </div>
       </div>
     );
