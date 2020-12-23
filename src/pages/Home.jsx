@@ -14,7 +14,6 @@ import { useLanguageContext } from "../context/languageContext";
 import { Empty } from "../components/Empty";
 import { useTranslation } from "react-i18next";
 
-// eslint-disable-next-line react/prop-types
 const SeeMoreWrapper = ({ to, ...props }) => {
   return (
     <div className="flex justify-end mt-2">

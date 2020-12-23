@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { Home } from "../pages/Home";
+import { CreationLanguageTypes } from "../pages/CreationLanguage/CreationLanguageTypes";
 import { CreationLanguageALL } from "../pages/CreationLanguage/CreationLanguageALL";
 import { CreationLanguageDetails } from "../pages/CreationLanguage/CreationLanguageDetail";
 import { EventsDetail } from "../pages/Events/EventsDetail";
@@ -49,10 +50,14 @@ export const Routes = () => {
       </Route>
 
       <Route exact path="/creation-language/:id">
+        <CreationLanguageTypes />
+      </Route>
+
+      <Route path="/creation-type/:id/">
         <CreationLanguageALL />
       </Route>
 
-      <Route path="/creation-language/:id/:creation_id">
+      <Route path="/creation/:id/">
         <CreationLanguageDetails />
       </Route>
 

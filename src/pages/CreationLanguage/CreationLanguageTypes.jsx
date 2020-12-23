@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { Body } from "../../atom/Body";
-import { Grid3Cols } from "../../atom/GridLayouts";
+import { Grid2Cols } from "../../atom/GridLayouts";
 import { HeadingText, Title } from "../../atom/Headings";
 import { Card } from "../../components/Card";
 import { Empty } from "../../components/Empty";
@@ -11,10 +11,10 @@ import { useLanguageContext } from "../../context/languageContext";
 import { useAPI } from "../../hooks/API";
 import { getImgSrc } from "../../hooks/getImg";
 
-export const CreationLanguageALL = () => {
+export const CreationLanguageTypes = () => {
   const history = useHistory();
   const { id } = useParams();
-  const { data } = useAPI(`/type/${id}`);
+  const { data } = useAPI(`/creation-language/${id}`);
   const { g } = useLanguageContext();
 
   // const { setImages } = useCarouselContext();
@@ -28,19 +28,20 @@ export const CreationLanguageALL = () => {
   return (
     <Body>
       <Section heading={<Title classes="">{data?.[g("name")]}</Title>}>
-        <Grid3Cols>
+        <Grid2Cols>
           {data &&
             data?.type?.map((info) => (
               <Card
+                classes="px-2 sm:px-10 md:px-16"
                 key={info.id}
                 src={getImgSrc(info)}
-                onClick={() => history.push(`/creation/${info.id}`)}
+                onClick={() => history.push(`/creation-type/${info.id}`)}
               >
-                <HeadingText>{info?.[g("title")]}</HeadingText>
+                <HeadingText>{info?.[g("name")]}</HeadingText>
               </Card>
             ))}
           {data && data.type.length === 0 && <Empty />}
-        </Grid3Cols>
+        </Grid2Cols>
       </Section>
     </Body>
   );
