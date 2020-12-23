@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import classnames from "classnames";
 import { useCarouselContext } from "../context/carouselImage";
-import { getImgSrc } from "../hooks/getImg";
+// import { getImgSrc } from "../hooks/getImg";
 import { useLanguageContext } from "../context/languageContext";
 import mainSlider from "../assets/main_slider.png";
 
