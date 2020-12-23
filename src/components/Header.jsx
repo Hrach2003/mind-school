@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 import { useAPI } from "../hooks/API";
 import { useLanguageContext } from "../context/languageContext";
 import { useTranslation } from "react-i18next";
-import logo from "../assets/logo512.jpg";
+import logo from "../assets/logo512.png";
 // eslint-disable-next-line react/display-name
 export const NavLinks = React.memo(({ ...props }) => {
   const { data } = useAPI("/creation-language/");
