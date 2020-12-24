@@ -1,19 +1,12 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Body } from "../atom/Body";
-import { Grid4Cols } from "../atom/GridLayouts";
-import {
-  Title,
-  SubTitle,
-  Paragraph,
-  OverLay,
-  HeadingText,
-} from "../atom/Headings";
-import { Card } from "../components/Card";
-import { Section } from "../components/Section";
 import { useCarouselContext } from "../context/carouselImage";
 import { useLanguageContext } from "../context/languageContext";
 import { useAPI } from "../hooks/API";
+
+import { InfoLayout } from "../HOC/infoLayout";
+import { getImgSrc } from "../hooks/getImg";
+import { haveVideo } from "../hooks/getImg";
 
 export const AboutUs = () => {
   const { data, error } = useAPI("/about-us");
@@ -25,30 +18,19 @@ export const AboutUs = () => {
       setImages(data[0].images);
     }
   }, [data, error, setImages]);
-  if (error) return <HeadingText>Loading ...</HeadingText>;
-  if (!data) return <HeadingText>Loading ...</HeadingText>;
-  const info = data[0]; // data.length - 1
+  const info = data?.[data?.length - 1];
   return (
-    <Body>
-      <Section heading={<Title>{t("armenianMindSchool")}</Title>} />
-      <Section
-        classes="mb-32 mt-12"
-        heading={<SubTitle>{t("aboutUs")}</SubTitle>}
-      >
-        <Card>
-          <Paragraph>{info.content}</Paragraph>
-          <OverLay classes="uppercase font-medium mt-3">
-            {info[g("creator")]}
-            <br /> {info[g("created_at")]}
-          </OverLay>
-        </Card>
-
-        <Grid4Cols classes="mt-4">
-          {info.images.map(({ file, id }) => {
-            return <Card src={file} key={id} noLine />;
-          })}
-        </Grid4Cols>
-      </Section>
-    </Body>
+    <InfoLayout
+      video={haveVideo(info)}
+      loading={!info && !error}
+      name={t("armenianMindSchool")}
+      title={t("aboutUs")}
+      images={info?.images}
+      main_image={getImgSrc(info)}
+      creator={info?.[g("creator")]}
+      created_at={info?.[g("created_at")]}
+      tags={info?.tags}
+      content={info?.[g("content")]}
+    />
   );
 };

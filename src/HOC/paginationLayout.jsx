@@ -12,7 +12,7 @@ import { useLanguageContext } from "../context/languageContext";
 import { useAPI } from "../hooks/API";
 import { getImgSrc } from "../hooks/getImg";
 
-export const MainPage = React.memo(({ url, name }) => {
+export const MainPage = React.memo(({ url, name, to }) => {
   const history = useHistory();
   const [pageIdx, setPageIdx] = useState(1);
 
@@ -36,7 +36,7 @@ export const MainPage = React.memo(({ url, name }) => {
             <Card
               key={data.id}
               src={getImgSrc(data)}
-              onClick={() => history.push(`${url}/${data.id}/`)}
+              onClick={() => history.push(`${to ? to : url}/${data.id}/`)}
             >
               <HeadingText>{data[g("title")]}</HeadingText>
             </Card>

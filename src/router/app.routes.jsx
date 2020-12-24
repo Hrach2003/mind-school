@@ -23,29 +23,31 @@ export const Routes = () => {
       <Route exact path="/events/">
         <Events />
       </Route>
-      <Route path="/events/:id/">
+      <Route path="/event/:id/">
         <EventsDetail />
       </Route>
       <Route path="/about-us/">
         <AboutUs />
       </Route>
+
       <Route exact path="/folk-dances/">
         <FolkDance />
       </Route>
+      <Route path="/folk-dance/:id/">
+        <FolkDanceDetail />
+      </Route>
+
       <Route exact path="/folk-musics/">
         <FolkMusic />
       </Route>
-      <Route path="/folk-dances/:id/">
-        <FolkDanceDetail />
-      </Route>
-      <Route path="/folk-musics/:id/">
+      <Route path="/folk-music/:id/">
         <FolkMusicDetail />
       </Route>
 
       <Route exact path="/histories/">
         <History />
       </Route>
-      <Route path="/histories/:id/">
+      <Route path="/history/:id/">
         <HistoryDetail />
       </Route>
 
