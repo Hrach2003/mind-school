@@ -27,7 +27,7 @@ export const NavLinks = React.memo(({ ...props }) => {
           {data &&
             data.results.map((info, idx) => {
               return (
-                <NavLink key={info.id} to={`/creation-language/${info.id}`}>
+                <NavLink key={info.id} to={`/creation-language/${info.id}/`}>
                   {idx === data.results.length - 1 && " | "}
                   {info[g("name")]}
                 </NavLink>
@@ -37,14 +37,14 @@ export const NavLinks = React.memo(({ ...props }) => {
       </div>
       <div className="items-center justify-center capitalize flex" {...props}>
         <HeadingText>
-          <NavLink to="/folk-musics">{t("folkMusic")}</NavLink> |{" "}
-          <NavLink to="/folk-dances">{t("folkDance")}</NavLink>
+          <NavLink to="/folk-musics/">{t("folkMusic")}</NavLink> |{" "}
+          <NavLink to="/folk-dances/">{t("folkDance")}</NavLink>
         </HeadingText>
       </div>
       <div className="items-center justify-center capitalize flex" {...props}>
         <HeadingText>
-          <NavLink to="/histories">{t("history")}</NavLink> |{" "}
-          <NavLink to="/events">{t("events")}</NavLink>
+          <NavLink to="/histories/">{t("history")}</NavLink> |{" "}
+          <NavLink to="/events/">{t("events")}</NavLink>
         </HeadingText>
       </div>
     </>

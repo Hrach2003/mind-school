@@ -36,7 +36,7 @@ export const MainPage = React.memo(({ url, name }) => {
             <Card
               key={data.id}
               src={getImgSrc(data)}
-              onClick={() => history.push(`${url}/${data.id}`)}
+              onClick={() => history.push(`${url}/${data.id}/`)}
             >
               <HeadingText>{data[g("title")]}</HeadingText>
             </Card>
@@ -48,8 +48,11 @@ export const MainPage = React.memo(({ url, name }) => {
         <Pagination
           prev={!!data.previous}
           next={!!data.next}
-          handleNext={() => setPageIdx((idx) => idx - 1)}
-          handlePrev={() => setPageIdx((idx) => idx + 1)}
+          handleNext={() => {
+            setPageIdx((idx) => idx + 1);
+            console.log("called");
+          }}
+          handlePrev={() => setPageIdx((idx) => idx - 1)}
         />
       </Section>
     </Body>

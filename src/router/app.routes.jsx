@@ -20,40 +20,40 @@ export const Routes = () => {
       <Route exact path="/">
         <Home />
       </Route>
-      <Route exact path="/events">
+      <Route exact path="/events/">
         <Events />
       </Route>
-      <Route path="/events/:id">
+      <Route path="/events/:id/">
         <EventsDetail />
       </Route>
-      <Route path="/about-us">
+      <Route path="/about-us/">
         <AboutUs />
       </Route>
-      <Route exact path="/folk-dances">
+      <Route exact path="/folk-dances/">
         <FolkDance />
       </Route>
-      <Route exact path="/folk-musics">
+      <Route exact path="/folk-musics/">
         <FolkMusic />
       </Route>
-      <Route path="/folk-dances/:id">
+      <Route path="/folk-dances/:id/">
         <FolkDanceDetail />
       </Route>
-      <Route path="/folk-musics/:id">
+      <Route path="/folk-musics/:id/">
         <FolkMusicDetail />
       </Route>
 
-      <Route path="/histories">
+      <Route exact path="/histories/">
         <History />
       </Route>
-      <Route path="/history/:id">
+      <Route path="/histories/:id/">
         <HistoryDetail />
       </Route>
 
-      <Route exact path="/creation-language/:id">
+      <Route exact path="/creation-language/:id/">
         <CreationLanguageTypes />
       </Route>
 
-      <Route path="/creation-type/:id/">
+      <Route path="/type/:id/">
         <CreationLanguageALL />
       </Route>
 

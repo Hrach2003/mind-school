@@ -34,7 +34,7 @@ export const CreationLanguageALL = () => {
               <Card
                 key={info.id}
                 src={getImgSrc(info)}
-                onClick={() => history.push(`/creation/${info.id}`)}
+                onClick={() => history.push(`/creation/${info.id}/`)}
               >
                 <HeadingText>{info?.[g("title")]}</HeadingText>
               </Card>

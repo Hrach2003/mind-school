@@ -6,3 +6,7 @@ export const getImgSrc = (data) => {
   if (data?.icon) return data.icon;
   return data?.images?.[0]?.file;
 };
+
+export const haveVideo = (data) => {
+  return data?.["video_link"];
+};

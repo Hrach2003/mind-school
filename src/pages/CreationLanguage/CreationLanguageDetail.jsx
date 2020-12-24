@@ -4,7 +4,7 @@ import { InfoLayout } from "../../HOC/infoLayout";
 import { useCarouselContext } from "../../context/carouselImage";
 import { useLanguageContext } from "../../context/languageContext";
 import { useAPI } from "../../hooks/API";
-import { getImgSrc } from "../../hooks/getImg";
+import { getImgSrc, haveVideo } from "../../hooks/getImg";
 
 export const CreationLanguageDetails = () => {
   const { id } = useParams(); // , id, creation_id
@@ -18,6 +18,7 @@ export const CreationLanguageDetails = () => {
   }, [data, setImages]);
   return (
     <InfoLayout
+      video={haveVideo(data)}
       loading={!data && !error}
       name={data?.creation_type}
       title={data?.[g("title")]}

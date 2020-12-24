@@ -5,6 +5,7 @@ import { useLanguageContext } from "../../context/languageContext";
 import { InfoLayout } from "../../HOC/infoLayout";
 import { useAPI } from "../../hooks/API";
 import { getImgSrc } from "../../hooks/getImg";
+import { haveVideo } from "../../hooks/getImg";
 
 export const HistoryDetail = () => {
   const { g, t } = useLanguageContext();
@@ -18,6 +19,7 @@ export const HistoryDetail = () => {
   }, [data, setImages]);
   return (
     <InfoLayout
+      video={haveVideo(data)}
       loading={!data && !error}
       name={t("history")}
       title={data?.[g("title")]}

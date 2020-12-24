@@ -35,7 +35,7 @@ export const CreationLanguageTypes = () => {
                 classes="px-2 sm:px-10 md:px-16"
                 key={info.id}
                 src={getImgSrc(info)}
-                onClick={() => history.push(`/creation-type/${info.id}`)}
+                onClick={() => history.push(`/type/${info.id}/`)}
               >
                 <HeadingText>{info?.[g("name")]}</HeadingText>
               </Card>

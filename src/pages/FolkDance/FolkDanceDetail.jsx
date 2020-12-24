@@ -4,7 +4,7 @@ import { useCarouselContext } from "../../context/carouselImage";
 import { useLanguageContext } from "../../context/languageContext";
 import { InfoLayout } from "../../HOC/infoLayout";
 import { useAPI } from "../../hooks/API";
-import { getImgSrc } from "../../hooks/getImg";
+import { getImgSrc, haveVideo } from "../../hooks/getImg";
 
 export const FolkDanceDetail = () => {
   const { g, t } = useLanguageContext();
@@ -18,6 +18,7 @@ export const FolkDanceDetail = () => {
   }, [data, setImages]);
   return (
     <InfoLayout
+      video={haveVideo(data)}
       loading={!data && !error}
       name={t("folkDance")}
       title={data?.[g("title")]}

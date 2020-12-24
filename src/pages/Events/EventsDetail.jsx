@@ -4,7 +4,7 @@ import { useCarouselContext } from "../../context/carouselImage";
 import { useLanguageContext } from "../../context/languageContext";
 import { InfoLayout } from "../../HOC/infoLayout";
 import { useAPI } from "../../hooks/API";
-import { getImgSrc } from "../../hooks/getImg";
+import { getImgSrc, haveVideo } from "../../hooks/getImg";
 
 // const checkIMGURL = (str) => !!str.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/gi);
 
@@ -19,6 +19,7 @@ export const EventsDetail = () => {
   }, [data, setImages]);
   return (
     <InfoLayout
+      video={haveVideo(data)}
       loading={!data && !error}
       name={t("events")}
       title={data?.[g("title")]}
