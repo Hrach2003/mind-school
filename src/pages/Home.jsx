@@ -91,7 +91,7 @@ export const Home = React.memo(() => {
               <Card
                 key={info.id}
                 src={getImgSrc(info)}
-                onClick={() => history.push(`/folk-musics/${info.id}/`)}
+                onClick={() => history.push(`/folk-music/${info.id}/`)}
               >
                 <HeadingText>{info.title}</HeadingText>
                 <OverLay classes="uppercase">{info.creator}</OverLay>
@@ -109,7 +109,7 @@ export const Home = React.memo(() => {
               <Card
                 key={info.id}
                 src={getImgSrc(info)}
-                onClick={() => history.push(`/folk-dances/${info.id}/`)}
+                onClick={() => history.push(`/folk-dance/${info.id}/`)}
               >
                 <HeadingText>{info.title}</HeadingText>
                 <OverLay classes="uppercase">{info.creator}</OverLay>
